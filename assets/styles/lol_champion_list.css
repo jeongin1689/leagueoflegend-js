@@ -1,0 +1,320 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 78px;
+  background-color: #111;
+  padding: 0 36px;
+  box-sizing: border-box;
+}
+.logo_box {
+  display: flex;
+}
+.logo_box svg {
+  width: 85px;
+  height: 27px;
+  fill: #fff;
+}
+.header_category {
+  display: flex;
+  align-items: center;
+  width: 71%;
+  margin-left: 18px;
+}
+.header_list_item {
+  color: #f9f9f9;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7.5px 16px;
+  text-align: center;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.login_box {
+}
+.login_box .search_area {
+  width: 45px;
+  height: 45px;
+  background-color: #2b2a29;
+  transition: background-color 0.1s ease-in-out;
+  border-radius: 50%;
+  padding: 10px 0;
+}
+.login_box .search_area svg {
+  fill: #fff;
+  width: 22px;
+  height: 22px;
+}
+.login_btn {
+  transition: color 1s cubic-bezier(0.06, 0.81, 0, 0.98);
+  vertical-align: middle;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(128, 128, 128, 0.2);
+  margin: 0 5px;
+  padding: 8px 16px;
+  border-radius: 6.4px;
+  letter-spacing: 0.8px;
+  height: 32px;
+  color: #f9f9f9;
+}
+.join_btn {
+  background: rgb(11, 196, 226);
+  text-align: center;
+  line-height: 16px;
+  height: 32px;
+  border-radius: 12px;
+  padding: 8px 16px;
+  color: #111;
+  font-weight: 600;
+}
+.main_contents {
+}
+.main_top {
+  position: relative;
+  padding: 200px 0;
+  background: url(https://www.leagueoflegends.com/static/hud-2-26248b498990f206d244ca138c383a3a.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+.main_cont_text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.small_text {
+  margin-bottom: -16px;
+  font-family: cursive;
+  font-size: 24px;
+  font-weight: 600;
+}
+.large_text {
+  padding: 0px 15px 10px;
+  margin-bottom: -10px;
+  font-size: 60px;
+  font-weight: 800;
+}
+.contents_text {
+  display: inline-block;
+  margin: 12px auto 0px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+.champion_search_area {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 180px auto 0;
+  max-width: 1400px;
+  height: 50px;
+  box-sizing: border-box;
+  border: 1px solid hsl(0, 0%, 80%);
+}
+.dropdown_box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 160px;
+  height: 50px;
+  padding: 0px 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.champion_search_area .dropdown_box {
+  border-right: 1px solid hsl(0, 0%, 80%);
+}
+.champion_difficulty .dropdown_box {
+  border-right: none;
+  border-left: 1px solid hsl(0, 0%, 80%);
+}
+.dropdown_box .dropdown_name {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: transparent;
+}
+.dropdown_box .dropdown_list {
+  display: none;
+  position: absolute;
+  top: 49px;
+  left: -1px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-top: none;
+  z-index: 10;
+}
+.dropdown_box .dropdown_list .dropdown_item {
+  width: 100%;
+  padding: 10px 25px;
+  font-size: 11px;
+  font-weight: 600;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.dropdown_box .dropdown_list .dropdown_item:hover {
+  background-color: rgb(202, 202, 202, 0.2);
+  transition: background-color 0.1s ease-in-out;
+}
+.champion_type_category ul {
+  display: flex;
+}
+.champion_type_category ul li {
+  position: relative;
+  padding: 0px 10px;
+  width: auto;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgb(202, 202, 202);
+  transition: color 300ms ease 0s;
+  cursor: pointer;
+}
+.champion_type_category ul li.is_active:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  bottom: -16px;
+  left: 0;
+  transform: translate(0%, 0%);
+  background-color: rgb(194, 144, 45);
+  transition: transform 300ms ease 0s;
+}
+.champion_type_category ul li:hover::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 3px;
+  bottom: -16px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgb(194, 144, 45);
+  transition: transform 300ms ease 0s;
+}
+.champion_type_category ul li.is_active:hover::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  bottom: -16px;
+  left: 0;
+  transform: translate(0%, 0%);
+  background-color: rgb(194, 144, 45);
+  transition: transform 300ms ease 0s;
+}
+.champion_type_category ul li.is_active {
+  color: #111;
+}
+.champion_wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
+.champion_list_area {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(4.5% - 20px) calc(4% - 20px) 0px;
+  padding: 0px 0px 0px 20px;
+  transition: opacity 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s,
+    transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_box {
+  padding: 20px 20px 0px 0px;
+  display: block;
+  flex: 1 1 20%;
+  max-width: 20%;
+  min-width: 0px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.champion_img_box {
+  width: 230px;
+  height: 440px;
+  overflow: hidden;
+  width: 100%;
+}
+.champion_img_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.1;
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_img_box img:hover {
+  transform: scale3d(1.05, 1.05, 1);
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_name_box {
+  display: block;
+  overflow: hidden;
+  background-color: rgb(6, 28, 37);
+  padding: 6% 8%;
+  transition: background-color 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_img_box:hover ~ .champion_name_box {
+  background-color: rgb(26, 124, 163);
+  transition: background-color 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_img_box:hover ~ .champion_name_box span {
+  transform: scale3d(1.05, 1.05, 1);
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.champion_name_box span {
+  display: inline-block;
+  color: white;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 800;
+  padding-left: 0;
+  transform: scale3d(1, 1, 1);
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  cursor: pointer;
+}
+.dropdown_list2 {
+  display: none;
+  position: absolute;
+  top: 49px;
+  left: -1px;
+  width: 161px;
+  background-color: #fff;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-top: none;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.difficulty_box {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 10px 0px 10px 20px;
+}
+.difficulty_box span {
+  display: inline-block;
+  width: 20%;
+  height: 14px;
+  opacity: 1;
+  background-color: rgb(8, 215, 247);
+  background-clip: content-box;
+  transform: skewX(-40deg);
+}
+.difficulty_box:hover {
+  background-color: rgb(202, 202, 202, 0.2);
+  transition: background-color 0.1s ease-in-out;
+}
+.skyblue {
+  background-color: rgb(213, 243, 248) !important;
+}

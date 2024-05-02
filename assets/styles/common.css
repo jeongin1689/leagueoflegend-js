@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+textarea,
+input,
+select,
+textarea,
+button,
+article,
+aside,
+dialog,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+main {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*::-webkit-scrollbar {
+  width: 21px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #ebebeb;
+  border-radius: 15px;
+  border: 8px solid #fff;
+}
+article,
+aside,
+dialog,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+main {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+}
+img,
+form,
+fieldset,
+svg,
+li {
+  border: 0;
+  vertical-align: top;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+input,
+button,
+select {
+  border: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: "Noto Sans KR", sans-serif;
+}
+input::placeholder {
+  font-family: "Noto Sans KR", sans-serif;
+}
+address,
+caption,
+em {
+  font-style: normal;
+}
+.blind,
+caption span,
+legend {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+}
+a,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
