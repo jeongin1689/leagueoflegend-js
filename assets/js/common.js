@@ -19,20 +19,27 @@ $(difficultyBtn).on("click", function () {
 $(document).on("click", ".dropdown_item", function () {
   let champName = $(this).text();
   $(".search_name").text(champName);
-  findChampName();
+  let championBoxMatch = $(".champion_list_area")
+    .find(champName)
+    .addClass("find");
+  let championBoxName = $(championBoxMatch).val();
+
+  console.log("champName = " + champName);
+  console.log(championBoxMatch);
+  console.log("championBoxName = " + championBoxName);
 });
 
-function findChampName() {
-  let dropdownName = $(".search_name").text();
-  let categoryFind = $(".champion_name_box span");
-  let categoryName = $(categoryFind).find(dropdownName);
-  console.log(dropdownName);
-  console.log(categoryName);
+// function findChampName() {
+//   let dropdownName = $(".search_name").text();
+//   let categoryFind = $(".champion_name_box span");
+//   let categoryName = $(categoryFind).find(dropdownName);
+//   console.log(dropdownName);
+//   console.log(categoryName);
 
-  if ($(dropdownName == categoryName)) {
-    $(categoryFind).parents(".champion_box").addClass("is_active");
-  }
-}
+//   if ($(dropdownName == categoryName)) {
+//     $(categoryFind).parents(".champion_box").addClass("is_active");
+//   }
+// }
 
 $(typeBtn).on("click", function () {
   let target = $(this);
@@ -93,9 +100,11 @@ function championList() {
           let championId = champion.id;
           let championTag = champion.tags[0];
 
-          console.log(championTag);
+          //   console.log(championTag);
           championListHtml +=
-            "<div class='champion_box' id=" +
+            "<div class='champion_box " +
+            championName +
+            "' id=" +
             championTag +
             "><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
             championId +
@@ -104,7 +113,9 @@ function championList() {
             "</span></div></div>";
 
           championNameBox +=
-            "<li class='dropdown_item champName' id=" +
+            "<li class='dropdown_item champName " +
+            championName +
+            "' id=" +
             championTag +
             ">" +
             championName +
