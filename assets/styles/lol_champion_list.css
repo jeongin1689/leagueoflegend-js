@@ -75,7 +75,7 @@
 .main_top {
   position: relative;
   padding: 200px 0;
-  background: url(https://www.leagueoflegends.com/static/hud-2-26248b498990f206d244ca138c383a3a.jpg);
+  background: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/a6f94cd5ed222d3b99e535f17cd9592d3c716bb5-3840x1616.png?auto=format&fit=fill&q=80&h=888);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -97,12 +97,14 @@
   font-family: cursive;
   font-size: 24px;
   font-weight: 600;
+  color: #fff;
 }
 .large_text {
   padding: 0px 15px 10px;
   margin-bottom: -10px;
   font-size: 60px;
   font-weight: 800;
+  color: #fff;
 }
 .contents_text {
   display: inline-block;

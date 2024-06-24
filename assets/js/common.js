@@ -1,4 +1,5 @@
 const typeBtn = $(".champion_type li");
+const difficultyType = $(".champion_difficulty .dropdown_list2 li");
 const searchBtn = $(".dropdown_box.search_box");
 const difficultyBtn = $(".champion_difficulty .dropdown_box");
 const all = $("#all");
@@ -40,6 +41,43 @@ $(document).on("click", ".dropdown_item", function () {
 //     $(categoryFind).parents(".champion_box").addClass("is_active");
 //   }
 // }
+
+function findHiddenInput(){
+
+  let hiddenInput = $(".champion_list_area .champion_box").children(".difficulty");
+
+  $(hiddenInput).each(function(){
+    let championInputValue = $(this).val();
+    if((championInputValue == 0) || (championInputValue == 1) || (championInputValue == 2) || (championInputValue == 3)){
+      $(this).parent().addClass("lower");
+    } else if ((championInputValue == 4) || (championInputValue == 5) || (championInputValue == 6) || (championInputValue == 7)){
+      $(this).parent().addClass("middle");
+    } else {
+      $(this).parent().addClass("upper");
+    }
+  });
+
+}
+
+$(difficultyType).on("click", function(){
+
+  let target = $(this);
+
+  $(difficultyType).removeClass("active");
+  $(target).addClass("active");
+  findHiddenInput();
+  if($(".difficulty_box.lower").hasClass("active")){
+    $(".champion_list_area").children().hide();
+    $(".champion_list_area").children(".lower").show();
+  }else if($(".difficulty_box.middle").hasClass("active")){
+    $(".champion_list_area").children().hide();
+    $(".champion_list_area").children(".middle").show();
+  }else {
+    $(".champion_list_area").children().hide();
+    $(".champion_list_area").children(".upper").show();
+  }
+
+});
 
 $(typeBtn).on("click", function () {
   let target = $(this);
@@ -86,7 +124,7 @@ $(typeBtn).on("click", function () {
 
 function championList() {
   $.ajax({
-    url: "https://ddragon.leagueoflegends.com/cdn/14.8.1/data/ko_KR/champion.json",
+    url: "https://ddragon.leagueoflegends.com/cdn/14.12.1/data/ko_KR/champion.json",
     dataType: "JSON",
     method: "GET",
     success: function (response) {
@@ -99,16 +137,15 @@ function championList() {
           let championName = champion.name;
           let championId = champion.id;
           let championTag = champion.tags[0];
+          let championDifficulty = champion.info.difficulty;
 
           //   console.log(championTag);
           championListHtml +=
-            "<div class='champion_box " +
-            championName +
-            "' id=" +
-            championTag +
+            "<div class='champion_box " + championName +"' id=" +
+            championTag + 
             "><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
             championId +
-            "_0.jpg' alt=''></div><div class='champion_name_box'><span>" +
+            "_0.jpg' alt=''></div><input type='hidden' class='difficulty' value='" + championDifficulty + "'><div class='champion_name_box'><span>" +
             championName +
             "</span></div></div>";
 
