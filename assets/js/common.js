@@ -10,6 +10,71 @@ const marksman = $("#marksman");
 const support = $("#support");
 const tank = $("#tank");
 
+function championList() {
+  $.ajax({
+    url: "https://ddragon.leagueoflegends.com/cdn/14.12.1/data/ko_KR/champion.json",
+    dataType: "JSON",
+    method: "GET",
+    success: function (response) {
+      if (response) {
+        const champions = response.data;
+        let championListHtml = "";
+        let championNameBox = "";
+        console.log(champions);
+        $.each(champions, function (key, champion) {
+          let championName = champion.name;
+          let championId = champion.id;
+          let championTag = champion.tags[0];
+          let championDifficulty = champion.info.difficulty;
+
+          //   console.log(championTag);
+          championListHtml +=
+            "<div class='champion_box " + championName +"' id=" +
+            championTag + 
+            "><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+            championId +
+            "_0.jpg' alt=''></div><input type='hidden' class='difficulty' value='" + championDifficulty + "'><div class='champion_name_box'><span>" +
+            championName +
+            "</span></div></div>";
+
+          championNameBox +=
+            "<li class='dropdown_item champName " +
+            championName +
+            "' id=" +
+            championTag +
+            ">" +
+            championName +
+            "</li>";
+        });
+        $(".champion_list_area").append(championListHtml);
+        $(".dropdown_list").append(championNameBox);
+      }
+    },
+    error: function (xhr, status, error) {
+      alert("데이터를 가져오는 중 오류가 발생했어요.");
+    },
+  });
+}
+championList();
+
+function findHiddenInput(){
+
+  let hiddenInput = $(".champion_list_area .champion_box").children(".difficulty");
+
+  $(hiddenInput).each(function(){
+    let championInputValue = $(this).val();
+    if((championInputValue == 0) || (championInputValue == 1) || (championInputValue == 2) || (championInputValue == 3)){
+      $(this).parent().addClass("lower");
+    } else if ((championInputValue == 4) || (championInputValue == 5) || (championInputValue == 6) || (championInputValue == 7)){
+      $(this).parent().addClass("middle");
+    } else {
+      $(this).parent().addClass("upper");
+    }
+  });
+
+}
+
+
 $(searchBtn).on("click", function () {
   $(".dropdown_list").toggle();
 });
@@ -29,35 +94,6 @@ $(document).on("click", ".dropdown_item", function () {
   console.log(championBoxMatch);
   console.log("championBoxName = " + championBoxName);
 });
-
-// function findChampName() {
-//   let dropdownName = $(".search_name").text();
-//   let categoryFind = $(".champion_name_box span");
-//   let categoryName = $(categoryFind).find(dropdownName);
-//   console.log(dropdownName);
-//   console.log(categoryName);
-
-//   if ($(dropdownName == categoryName)) {
-//     $(categoryFind).parents(".champion_box").addClass("is_active");
-//   }
-// }
-
-function findHiddenInput(){
-
-  let hiddenInput = $(".champion_list_area .champion_box").children(".difficulty");
-
-  $(hiddenInput).each(function(){
-    let championInputValue = $(this).val();
-    if((championInputValue == 0) || (championInputValue == 1) || (championInputValue == 2) || (championInputValue == 3)){
-      $(this).parent().addClass("lower");
-    } else if ((championInputValue == 4) || (championInputValue == 5) || (championInputValue == 6) || (championInputValue == 7)){
-      $(this).parent().addClass("middle");
-    } else {
-      $(this).parent().addClass("upper");
-    }
-  });
-
-}
 
 $(difficultyType).on("click", function(){
 
@@ -122,49 +158,4 @@ $(typeBtn).on("click", function () {
   }
 });
 
-function championList() {
-  $.ajax({
-    url: "https://ddragon.leagueoflegends.com/cdn/14.12.1/data/ko_KR/champion.json",
-    dataType: "JSON",
-    method: "GET",
-    success: function (response) {
-      if (response) {
-        const champions = response.data;
-        let championListHtml = "";
-        let championNameBox = "";
-        console.log(champions);
-        $.each(champions, function (key, champion) {
-          let championName = champion.name;
-          let championId = champion.id;
-          let championTag = champion.tags[0];
-          let championDifficulty = champion.info.difficulty;
 
-          //   console.log(championTag);
-          championListHtml +=
-            "<div class='champion_box " + championName +"' id=" +
-            championTag + 
-            "><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-            championId +
-            "_0.jpg' alt=''></div><input type='hidden' class='difficulty' value='" + championDifficulty + "'><div class='champion_name_box'><span>" +
-            championName +
-            "</span></div></div>";
-
-          championNameBox +=
-            "<li class='dropdown_item champName " +
-            championName +
-            "' id=" +
-            championTag +
-            ">" +
-            championName +
-            "</li>";
-        });
-        $(".champion_list_area").append(championListHtml);
-        $(".dropdown_list").append(championNameBox);
-      }
-    },
-    error: function (xhr, status, error) {
-      alert("데이터를 가져오는 중 오류가 발생했어요.");
-    },
-  });
-}
-championList();

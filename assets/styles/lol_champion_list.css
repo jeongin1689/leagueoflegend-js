@@ -31,8 +31,6 @@
   margin-right: 4px;
   cursor: pointer;
 }
-.login_box {
-}
 .login_box .search_area {
   width: 45px;
   height: 45px;
@@ -69,8 +67,6 @@
   padding: 8px 16px;
   color: #111;
   font-weight: 600;
-}
-.main_contents {
 }
 .main_top {
   position: relative;
