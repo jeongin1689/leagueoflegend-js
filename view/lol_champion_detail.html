@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="../assets/styles/common.css" />
     <link rel="stylesheet" href="../assets/styles/lol_champion_detail.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   </head>
   <body>
     <section id="container">
@@ -155,11 +156,60 @@
             </div>
           </div>
         </div>
+        <div class="champion_available_skin_area">
+          <span class="champion_available_skin_tit">이용 가능 스킨</span>
+          <div class="available_skin_wrap">
+            <ul class="slider slider_for skin_banner">
+              <li class="skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
+              </li>
+              <li class="skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg" alt="">
+              </li>
+              <li class="skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_2.jpg" alt="">
+              </li>
+              <li class="skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_3.jpg" alt="">
+              </li>
+            </ul>
+            <ul class="slider slider_nav available_skin_navigation">
+              <li class="navigation_skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="">
+              </li>
+              <li class="navigation_skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_1.jpg" alt="">
+              </li>
+              <li class="navigation_skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_2.jpg" alt="">
+              </li>
+              <li class="navigation_skin_box">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_3.jpg" alt="">
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
-    <script src="../assets/js/common.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- <script src="../assets/js/common.js"></script> -->
+    <script>
+      $(".slider_for").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider_nav'
+      });
+      $('.slider_nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.slider_for',
+        dots: true,
+        focusOnSelect: true
+      });
+    </script>
   </body>
 </html>

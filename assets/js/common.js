@@ -10,14 +10,17 @@ const marksman = $("#marksman");
 const support = $("#support");
 const tank = $("#tank");
 
+
+
 function championList() {
   $.ajax({
     url: "https://ddragon.leagueoflegends.com/cdn/14.12.1/data/ko_KR/champion.json",
     dataType: "JSON",
     method: "GET",
+    async: false,
     success: function (response) {
       if (response) {
-        const champions = response.data;
+        let champions = response.data;
         let championListHtml = "";
         let championNameBox = "";
         console.log(champions);
@@ -29,14 +32,13 @@ function championList() {
 
           //   console.log(championTag);
           championListHtml +=
-            "<div class='champion_box " + championName +"' id=" +
+            "<div class='champion_box " + championName + "' id=" +
             championTag + 
-            "><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+            "><input type='hidden' value='"+ championId +"'><div class='champion_img_box'><img src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
             championId +
             "_0.jpg' alt=''></div><input type='hidden' class='difficulty' value='" + championDifficulty + "'><div class='champion_name_box'><span>" +
             championName +
             "</span></div></div>";
-
           championNameBox +=
             "<li class='dropdown_item champName " +
             championName +
